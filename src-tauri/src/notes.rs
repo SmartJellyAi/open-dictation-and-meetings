@@ -37,7 +37,8 @@ fn is_browser(name: &str) -> bool {
 /// A call is named by where it happened and who was on it: "Google Meet
 /// with Priya", "Zoom with Sam and Lee". Nobody known: "Zoom call".
 pub fn list_title(service: &str, others: &[String]) -> String {
-    let app = if service.trim().is_empty() || is_browser(service) || service == "a meeting" { "Call" } else { service.trim() };
+    // "Meeting" is a call started by hand: where it ran is not known.
+    let app = if service.trim().is_empty() || is_browser(service) || service == "a meeting" || service == "Meeting" { "Call" } else { service.trim() };
     let firsts: Vec<String> = others.iter().map(|p| p.split_whitespace().next().unwrap_or("").to_string()).filter(|p| !p.is_empty()).collect();
     let who = match firsts.as_slice() {
         [] => return if app == "Call" { "Call".into() } else { format!("{app} call") },
@@ -295,6 +296,7 @@ mod tests {
         assert_eq!(list_title("Zoom", &[]), "Zoom call");
         assert_eq!(list_title("Google Chrome", &[]), "Call");
         assert_eq!(list_title("Arc", &["Sam".into()]), "Call with Sam");
+        assert_eq!(list_title("Meeting", &[]), "Call");
     }
 
     #[test]
