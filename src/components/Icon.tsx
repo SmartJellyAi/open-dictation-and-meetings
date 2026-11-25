@@ -143,7 +143,7 @@ const PATHS: Record<Name, ReactElement> = {
       <path d="M12.8 2.8l2.4 2.4-2.4 2.4M7.2 17.2l-2.4-2.4 2.4-2.4" />
     </>
   ),
-  // A quill: Studio, where Jelly helps you write.
+  // A quill.
   feather: (
     <>
       <path d="M16.6 3.4c-4.6.2-8.6 3.5-9.6 8.3l-.8 3.6 3.6-.8c4.8-1 8.1-5 8.3-9.6z" />
@@ -165,7 +165,7 @@ const PATHS: Record<Name, ReactElement> = {
   ),
   // Two people talking, not a notepad: the view is the whole meeting --
   // the brief before, the words during, the write-up after -- and the
-  // notepad glyph stays with Ask Jelly's actual notes.
+  // notepad glyph stays with the notes.
   meetings: (
     <>
       <path d="M3.5 2.6H9.9a1.7 1.7 0 0 1 1.7 1.7v1.2a1.7 1.7 0 0 1-1.7 1.7H6.3L3.5 9.4V7.2a1.7 1.7 0 0 1-1.7-1.7V4.3a1.7 1.7 0 0 1 1.7-1.7z" />

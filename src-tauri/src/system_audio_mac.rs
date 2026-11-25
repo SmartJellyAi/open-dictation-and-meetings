@@ -89,7 +89,7 @@ unsafe fn get_property<T>(
 }
 
 /// The Core Audio object representing a running process, found from its
-/// PID. Needed so Jelly can exclude *itself* from the tap -- otherwise the
+/// PID. Needed so the app can exclude *itself* from the tap -- otherwise the
 /// sounds it plays come back in as if a participant had said
 /// it.
 fn process_object_for_pid(pid: i32) -> Result<AudioObjectID, String> {
@@ -309,7 +309,7 @@ unsafe impl Send for SystemAudioTap {}
 unsafe impl Sync for SystemAudioTap {}
 
 impl SystemAudioTap {
-    /// Starts tapping everything the Mac is playing except Jelly itself.
+    /// Starts tapping everything the Mac is playing except this app.
     ///
     /// `on_peak` is called from Core Audio's IO thread once per buffer
     /// with that buffer's peak amplitude. It must not block: this is a
@@ -322,7 +322,7 @@ impl SystemAudioTap {
     ) -> Result<Self, String> {
         let own_pid = std::process::id() as i32;
         let own_object = process_object_for_pid(own_pid)
-            .unwrap_or(0); // Not fatal: worst case Jelly hears itself.
+            .unwrap_or(0); // Not fatal: worst case the app hears itself.
         let output_uid = default_output_uid()?;
 
         // -- 1. the tap ----------------------------------------------------
@@ -336,7 +336,7 @@ impl SystemAudioTap {
                 CATapDescription::alloc(),
                 &excluded,
             );
-            d.setName(&NSString::from_str("Jelly Voice and Notes"));
+            d.setName(&NSString::from_str("Open Dictation and Meetings"));
             // Private: the tap is ours alone and must never show up in the
             // reader's sound settings as a device they could pick.
             d.setPrivate(true);
@@ -385,8 +385,8 @@ impl SystemAudioTap {
                 &*key(kAudioAggregateDeviceTapListKey),
             ],
             &[
-                &*NSString::from_str("Jelly Voice and Notes") as &objc2::runtime::AnyObject,
-                &*NSString::from_str(&format!("app.jellyvoicenotes.tap.{}", NSUUID::new().UUIDString())),
+                &*NSString::from_str("Open Dictation and Meetings") as &objc2::runtime::AnyObject,
+                &*NSString::from_str(&format!("app.opendictationmeetings.tap.{}", NSUUID::new().UUIDString())),
                 &*output_uid,
                 &*NSNumber::new_bool(true),
                 &*NSArray::from_retained_slice(&[sub_tap]),
@@ -563,11 +563,11 @@ mod tests {
         assert_eq!(K_AUDIO_TAP_PROPERTY_UID, 0x74756964, "'tuid'");
     }
 
-    /// Jelly must be able to find its own process object, or it cannot
+    /// The app must be able to find its own process object, or it cannot
     /// exclude itself and will hear its own sounds as a
     /// participant.
     #[test]
-    fn jelly_can_find_its_own_audio_process_object() {
+    fn app_can_find_its_own_audio_process_object() {
         let own = process_object_for_pid(std::process::id() as i32);
         // A process that has never touched audio may legitimately have no
         // object yet, so this asserts the call works, not that it is

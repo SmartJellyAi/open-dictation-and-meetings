@@ -126,7 +126,7 @@ impl Dictation {
         let app = app.clone();
         emit(&app, State { active: true, held, ..Default::default() });
         std::thread::Builder::new()
-            .name("jelly-dictation".into())
+            .name("odm-dictation".into())
             .spawn(move || {
                 let result = run(&app, &stop, held, deepgram, openai.clone(), mic, &name);
                 // Whatever happened, this session is over (and only this

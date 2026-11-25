@@ -34,7 +34,7 @@ pub struct Bullet {
     pub spans: Vec<Span>,
     pub depth: u8,
     /// One of the reader's own typed lines, kept word for word. The view
-    /// shows these in full ink and Jelly's additions around them in grey.
+    /// shows these in full ink and the additions around them in grey.
     pub mine: bool,
 }
 
@@ -359,7 +359,7 @@ mod tests {
 mod mine_tests {
     use super::*;
 
-    /// Your typed lines are found again in the written notes; Jelly's
+    /// Your typed lines are found again in the written notes; the notes'
     /// additions and a line it reworded are not.
     #[test]
     fn mark_mine_matches_the_readers_own_lines_only() {

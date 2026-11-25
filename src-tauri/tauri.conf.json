@@ -1,9 +1,9 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Jelly Voice & Notes",
-  "mainBinaryName": "jelly-voice-notes",
+  "productName": "Open Dictation & Meetings",
+  "mainBinaryName": "open-dictation-meetings",
   "version": "0.1.0",
-  "identifier": "app.jellyvoicenotes.desktop",
+  "identifier": "app.opendictationmeetings.desktop",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
@@ -15,7 +15,7 @@
     "windows": [
       {
         "label": "main",
-        "title": "Jelly Voice & Notes",
+        "title": "Open Dictation & Meetings",
         "width": 1080,
         "height": 720,
         "minWidth": 820,
@@ -27,7 +27,7 @@
       {
         "label": "pill",
         "url": "pill.html",
-        "title": "Jelly",
+        "title": "Open Dictation & Meetings",
         "width": 460,
         "height": 120,
         "decorations": false,
@@ -50,7 +50,7 @@
       "iconPath": "icons/menubar-template.png",
       "iconAsTemplate": true,
       "showMenuOnLeftClick": true,
-      "tooltip": "Jelly Voice & Notes"
+      "tooltip": "Open Dictation & Meetings"
     }
   },
   "bundle": {

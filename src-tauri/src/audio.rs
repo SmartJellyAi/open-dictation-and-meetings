@@ -136,7 +136,7 @@ mod device {
             let failed = Arc::new(AtomicBool::new(false));
             let (stop_t, failed_t) = (stop.clone(), failed.clone());
             let thread = std::thread::Builder::new()
-                .name("jelly-audio-in".into())
+                .name("odm-audio-in".into())
                 .spawn(move || capture_thread(source, info_tx, go_rx, started_tx, stop_t, failed_t))
                 .map_err(|e| e.to_string())?;
             let owner = Owner { stop, failed, thread: Some(thread) };

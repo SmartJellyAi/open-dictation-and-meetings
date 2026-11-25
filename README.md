@@ -1,4 +1,4 @@
-# Jelly Voice & Notes
+# Open Dictation & Meetings
 
 A small desktop app with three things in it:
 
@@ -19,7 +19,7 @@ It runs on your own API keys and keeps everything in a small database on your co
 
 One key is enough to start: with only an OpenAI key everything works, and calls are written down about a minute behind instead of live. With only a Deepgram key, dictation and live transcripts work, but nothing is written from them.
 
-The models are set in `src-tauri/src/openai.rs`. To use others without changing code, set `JELLY_OPENAI_MODEL`, `JELLY_OPENAI_FAST_MODEL` or `JELLY_OPENAI_TRANSCRIBE_MODEL` before starting the app.
+The models are set in `src-tauri/src/openai.rs`. To use others without changing code, set `ODM_OPENAI_MODEL`, `ODM_OPENAI_FAST_MODEL` or `ODM_OPENAI_TRANSCRIBE_MODEL` before starting the app.
 
 ## Adding your keys
 
@@ -102,8 +102,10 @@ src-tauri/src/
   store.rs               the local database
 ```
 
-Data lives in your system's app data folder under `Jelly Voice and Notes` (for example `~/Library/Application Support/Jelly Voice and Notes` on macOS). Set `JELLY_DATA_DIR` to use another folder. Exported notes go to `Downloads/Jelly notes`.
+Data lives in your system's app data folder under `Open Dictation and Meetings` (for example `~/Library/Application Support/Open Dictation and Meetings` on macOS). Set `ODM_DATA_DIR` to use another folder. Exported notes go to `Downloads/Meeting notes`.
 
 ## License
 
-Not chosen yet. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).
+
+The jellyfish logo and the Smart Jelly name are not covered by the license. If you ship your own build, use your own name and icon.

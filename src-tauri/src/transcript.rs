@@ -281,7 +281,7 @@ pub fn wav_from_samples(samples: &[f32], sample_rate: f64) -> Option<Vec<u8>> {
 /// out the way it did. Never the words of a call, only what happened.
 pub fn log(message: &str) {
     use std::io::Write;
-    eprintln!("[jelly] {message}");
+    eprintln!("[odm] {message}");
     if cfg!(test) {
         return;
     }

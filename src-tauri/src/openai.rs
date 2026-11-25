@@ -13,25 +13,25 @@ const TRANSCRIBE_URL: &str = "https://api.openai.com/v1/audio/transcriptions";
 const RESPONSES_URL: &str = "https://api.openai.com/v1/responses";
 
 /// The model that writes meeting notes and preparation. Override with the
-/// `JELLY_OPENAI_MODEL` environment variable.
+/// `ODM_OPENAI_MODEL` environment variable.
 pub const MODEL: &str = "gpt-6.1-terra";
-/// The quick model that tidies a dictation. `JELLY_OPENAI_FAST_MODEL`.
+/// The quick model that tidies a dictation. `ODM_OPENAI_FAST_MODEL`.
 pub const FAST_MODEL: &str = "gpt-6-luna";
-/// Speech to text for a recording. `JELLY_OPENAI_TRANSCRIBE_MODEL`.
+/// Speech to text for a recording. `ODM_OPENAI_TRANSCRIBE_MODEL`.
 pub const TRANSCRIBE_MODEL: &str = "gpt-transcribe";
 
 const TIMEOUT: Duration = Duration::from_secs(120);
 
 pub fn model() -> String {
-    std::env::var("JELLY_OPENAI_MODEL").ok().filter(|m| !m.trim().is_empty()).unwrap_or_else(|| MODEL.to_string())
+    std::env::var("ODM_OPENAI_MODEL").ok().filter(|m| !m.trim().is_empty()).unwrap_or_else(|| MODEL.to_string())
 }
 
 pub fn fast_model() -> String {
-    std::env::var("JELLY_OPENAI_FAST_MODEL").ok().filter(|m| !m.trim().is_empty()).unwrap_or_else(|| FAST_MODEL.to_string())
+    std::env::var("ODM_OPENAI_FAST_MODEL").ok().filter(|m| !m.trim().is_empty()).unwrap_or_else(|| FAST_MODEL.to_string())
 }
 
 pub fn transcribe_model() -> String {
-    std::env::var("JELLY_OPENAI_TRANSCRIBE_MODEL").ok().filter(|m| !m.trim().is_empty()).unwrap_or_else(|| TRANSCRIBE_MODEL.to_string())
+    std::env::var("ODM_OPENAI_TRANSCRIBE_MODEL").ok().filter(|m| !m.trim().is_empty()).unwrap_or_else(|| TRANSCRIBE_MODEL.to_string())
 }
 
 /// The newer model families refuse any temperature but the default, so

@@ -37,7 +37,7 @@ impl SystemCapture {
         // The tap's own thread is realtime; the samples are collected here,
         // every tenth of a second, and handed on.
         std::thread::Builder::new()
-            .name("jelly-system-audio".into())
+            .name("odm-system-audio".into())
             .spawn(move || {
                 while !stop_t.load(Ordering::SeqCst) {
                     std::thread::sleep(std::time::Duration::from_millis(100));

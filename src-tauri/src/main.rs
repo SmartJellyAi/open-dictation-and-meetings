@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    jelly_voice_notes_lib::run()
+    open_dictation_meetings_lib::run()
 }

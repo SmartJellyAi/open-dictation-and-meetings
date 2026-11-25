@@ -42,7 +42,7 @@ export function Sidebar({ view, onNavigate }: { view: View; onNavigate: (v: View
     <aside className="sidebar cg-sidebar">
       <div className="cg-brand">
         <img src="/jelly-logo.png" alt="" decoding="async" />
-        <span className="cg-brand-name">Jelly Voice &amp; Notes</span>
+        <span className="cg-brand-name">Open Dictation &amp; Meetings</span>
       </div>
       <div className="cg-gap" />
       {NAV.map((item) => (

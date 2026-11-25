@@ -3,8 +3,8 @@
 <plist version="1.0">
 <dict>
     <key>NSMicrophoneUsageDescription</key>
-    <string>Jelly Voice &amp; Notes listens to your microphone while you dictate or take meeting notes.</string>
+    <string>Open Dictation &amp; Meetings listens to your microphone while you dictate or take meeting notes.</string>
     <key>NSAudioCaptureUsageDescription</key>
-    <string>Jelly Voice &amp; Notes hears what your Mac plays during a call, so the other people on the call are in your notes.</string>
+    <string>Open Dictation &amp; Meetings hears what your Mac plays during a call, so the other people on the call are in your notes.</string>
 </dict>
 </plist>

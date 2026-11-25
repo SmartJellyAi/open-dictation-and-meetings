@@ -409,7 +409,7 @@ fn notify(app: &AppHandle, title: &str, body: &str) {
 /// Starts the background work: soon after launch, then every five minutes.
 pub fn watch(app: AppHandle) {
     std::thread::Builder::new()
-        .name("jelly-prep".into())
+        .name("odm-prep".into())
         .spawn(move || {
             std::thread::sleep(std::time::Duration::from_secs(10));
             loop {

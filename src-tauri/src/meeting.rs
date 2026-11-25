@@ -152,7 +152,7 @@ impl Notetaker {
             let (app, id, stop, transcript, warning) = (app.clone(), id.clone(), stop.clone(), self.transcript.clone(), self.warning.clone());
             let mic = store.get_or(settings::MIC_DEVICE, "");
             std::thread::Builder::new()
-                .name("jelly-notetaker".into())
+                .name("odm-notetaker".into())
                 .spawn(move || run(app, id, stop, transcript, warning, deepgram, openai, mic))
                 .map_err(|e| e.to_string())?
         };
@@ -508,7 +508,7 @@ fn finish(app: &AppHandle, id: &str) {
 /// Starts the screen watch: every two seconds, one look.
 pub fn watch(app: AppHandle) {
     std::thread::Builder::new()
-        .name("jelly-meeting-watch".into())
+        .name("odm-meeting-watch".into())
         .spawn(move || loop {
             std::thread::sleep(Duration::from_secs(2));
             let notetaker = app.state::<Notetaker>();

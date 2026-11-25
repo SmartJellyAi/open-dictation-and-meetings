@@ -151,7 +151,7 @@ export default function Meetings({ openNote, onOpened, onOpenSettings }: { openN
                 setExported("Saving…");
                 void api
                   .exportAllMeetings()
-                  .then((r) => setExported(`${r.count} saved to Downloads/Jelly notes${r.skipped ? `, ${r.skipped} with no notes yet` : ""}`))
+                  .then((r) => setExported(`${r.count} saved to Downloads/Meeting notes${r.skipped ? `, ${r.skipped} with no notes yet` : ""}`))
                   .catch(() => setExported("The notes could not be saved."));
               }}
             >
@@ -302,8 +302,8 @@ function NoteDocument({ note, busy, error, onSummarise, onDeleted }: { note: Mee
                 <div className="mg-menu-list" role="menu">
                   <button type="button" role="menuitem" disabled={!note.transcript.trim()} onClick={() => { setMenuOpen(false); exportVia(() => writeText(note.transcript), "Copied the transcript"); }}>Copy the transcript</button>
                   <button type="button" role="menuitem" onClick={() => { setMenuOpen(false); exportVia(() => api.meetingMarkdown(note.id).then(writeText), "Copied the notes as Markdown"); }}>Copy the notes as Markdown</button>
-                  <button type="button" role="menuitem" onClick={() => { setMenuOpen(false); exportVia(() => api.exportMeeting(note.id, "notes"), "Saved to Downloads/Jelly notes"); }}>Save the notes as a file</button>
-                  <button type="button" role="menuitem" disabled={!note.transcript.trim()} onClick={() => { setMenuOpen(false); exportVia(() => api.exportMeeting(note.id, "transcript"), "Saved to Downloads/Jelly notes"); }}>Save the transcript as a file</button>
+                  <button type="button" role="menuitem" onClick={() => { setMenuOpen(false); exportVia(() => api.exportMeeting(note.id, "notes"), "Saved to Downloads/Meeting notes"); }}>Save the notes as a file</button>
+                  <button type="button" role="menuitem" disabled={!note.transcript.trim()} onClick={() => { setMenuOpen(false); exportVia(() => api.exportMeeting(note.id, "transcript"), "Saved to Downloads/Meeting notes"); }}>Save the transcript as a file</button>
                   <button type="button" role="menuitem" className="is-danger" onClick={() => { setMenuOpen(false); setConfirmDelete(true); }}>Delete this meeting</button>
                 </div>
               )}

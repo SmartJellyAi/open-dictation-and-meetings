@@ -2271,38 +2271,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "jelly-voice-notes"
-version = "0.1.0"
-dependencies = [
- "block2",
- "chrono",
- "cpal",
- "dirs 5.0.1",
- "futures",
- "objc2",
- "objc2-app-kit",
- "objc2-core-audio",
- "objc2-core-audio-types",
- "objc2-core-foundation",
- "objc2-core-graphics",
- "objc2-foundation",
- "reqwest",
- "rusqlite",
- "serde",
- "serde_json",
- "tauri",
- "tauri-build",
- "tauri-plugin-clipboard-manager",
- "tauri-plugin-global-shortcut",
- "tauri-plugin-notification",
- "tauri-plugin-opener",
- "tokio",
- "tokio-tungstenite",
- "uuid",
- "windows 0.61.3",
-]
-
-[[package]]
 name = "jiff"
 version = "0.2.35"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3172,6 +3140,38 @@ dependencies = [
  "dunce",
  "is-wsl",
  "libc",
+]
+
+[[package]]
+name = "open-dictation-meetings"
+version = "0.1.0"
+dependencies = [
+ "block2",
+ "chrono",
+ "cpal",
+ "dirs 5.0.1",
+ "futures",
+ "objc2",
+ "objc2-app-kit",
+ "objc2-core-audio",
+ "objc2-core-audio-types",
+ "objc2-core-foundation",
+ "objc2-core-graphics",
+ "objc2-foundation",
+ "reqwest",
+ "rusqlite",
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-clipboard-manager",
+ "tauri-plugin-global-shortcut",
+ "tauri-plugin-notification",
+ "tauri-plugin-opener",
+ "tokio",
+ "tokio-tungstenite",
+ "uuid",
+ "windows 0.61.3",
 ]
 
 [[package]]

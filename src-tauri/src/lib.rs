@@ -1,4 +1,4 @@
-//! Jelly Voice & Notes: dictation into any app, meeting notes (a live
+//! Open Dictation & Meetings: dictation into any app, meeting notes (a live
 //! transcript and notes written after the call), and notes before a
 //! meeting. Standalone: your own API keys, your own local database.
 
@@ -44,7 +44,7 @@ pub fn show_main(app: &AppHandle, view: Option<&str>) {
 }
 
 fn tray_menu(app: &AppHandle) -> tauri::Result<Menu<tauri::Wry>> {
-    let open = MenuItem::with_id(app, "open", "Open Jelly Voice & Notes", true, None::<&str>)?;
+    let open = MenuItem::with_id(app, "open", "Open Open Dictation & Meetings", true, None::<&str>)?;
     let dictate = MenuItem::with_id(app, "dictate", "Start or stop dictation", true, None::<&str>)?;
     let notes = MenuItem::with_id(app, "notes", "Take meeting notes", true, None::<&str>)?;
     let stop = MenuItem::with_id(app, "stop", "Stop meeting notes", true, None::<&str>)?;
@@ -80,7 +80,7 @@ pub fn run() {
     let store = match store::Store::open(&paths::db_path()) {
         Ok(s) => Arc::new(s),
         Err(e) => {
-            eprintln!("[jelly] the database could not be opened ({e}); running without saving");
+            eprintln!("[odm] the database could not be opened ({e}); running without saving");
             Arc::new(store::Store::open_in_memory())
         }
     };

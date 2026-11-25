@@ -1,12 +1,13 @@
 [package]
-name = "jelly-voice-notes"
+name = "open-dictation-meetings"
+license = "MIT"
 version = "0.1.0"
 description = "Dictation, meeting notes and pre-meeting notes on your own API keys"
 edition = "2021"
-default-run = "jelly-voice-notes"
+default-run = "open-dictation-meetings"
 
 [lib]
-name = "jelly_voice_notes_lib"
+name = "open_dictation_meetings_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]
