@@ -90,7 +90,7 @@ unsafe fn get_property<T>(
 
 /// The Core Audio object representing a running process, found from its
 /// PID. Needed so Jelly can exclude *itself* from the tap -- otherwise the
-/// voice overlay's own speech comes back in as if a participant had said
+/// sounds it plays come back in as if a participant had said
 /// it.
 fn process_object_for_pid(pid: i32) -> Result<AudioObjectID, String> {
     let address = global_address(kAudioHardwarePropertyTranslatePIDToProcessObject);
@@ -564,7 +564,7 @@ mod tests {
     }
 
     /// Jelly must be able to find its own process object, or it cannot
-    /// exclude itself and will hear its own voice overlay as a
+    /// exclude itself and will hear its own sounds as a
     /// participant.
     #[test]
     fn jelly_can_find_its_own_audio_process_object() {

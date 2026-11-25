@@ -1,17 +1,9 @@
 //! Waiting on async work from blocking code, safely from any thread.
 //!
-//! Since 0.2.3 most commands run on the "jelly-worker" runtime instead of
-//! the main thread (lib.rs). A command that then waits with a plain
-//! `tauri::async_runtime::block_on` (a model call, the vector index, a
-//! Google request) panics on that thread: "Cannot start a runtime from
-//! within a runtime". The command never returns, so its screen waits
-//! forever (2026-10-22: "Writing…" stuck on a meeting's notes for five
-//! minutes, three presses, three panics).
-//!
-//! On a runtime worker this hands the thread to blocking work first
-//! (`block_in_place`), so the wait is allowed and the runtime keeps its
-//! other tasks moving; anywhere else (the main thread, `spawn_blocking`,
-//! a plain thread) it is the same `block_on` as before.
+//! On a multi-thread runtime worker (where `#[tauri::command(async)]`
+//! runs), a plain `block_on` panics with "Cannot start a runtime from
+//! within a runtime". There this hands the thread to blocking work first
+//! (`block_in_place`); anywhere else it is the same `block_on`.
 
 use std::future::Future;
 
